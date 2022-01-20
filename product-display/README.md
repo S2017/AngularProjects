@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.1.
 
+Simple GET request to fetch product details has been made from angular client. Back end is developed using Java Spring Boot. 
+Database used - MySQL.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
