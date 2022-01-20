@@ -1,0 +1,17 @@
+<h2>Product Available</h2>
+<div id="container">
+    <table>
+        <thead>
+            <td>Name</td>
+            <td>Price</td>
+            <td>Quantity</td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
