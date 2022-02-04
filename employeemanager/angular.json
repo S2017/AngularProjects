@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "product-display": {
+    "employeemanager": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,11 +17,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/product-display",
+            "outputPath": "dist/employeemanager",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "crossOrigin": "anonymous",
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -69,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "product-display:build:production"
+              "browserTarget": "employeemanager:build:production"
             },
             "development": {
-              "browserTarget": "product-display:build:development"
+              "browserTarget": "employeemanager:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -80,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "product-display:build"
+            "browserTarget": "employeemanager:build"
           }
         },
         "test": {
@@ -103,5 +102,5 @@
       }
     }
   },
-  "defaultProject": "product-display"
+  "defaultProject": "employeemanager"
 }

@@ -10,3 +10,7 @@ table, thead, td {
     padding: 2px;
     border-collapse: collapse;
 }
+
+thead {
+    font-weight: bold;
+}
