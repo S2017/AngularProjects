@@ -1,0 +1,96 @@
+<!--Application Header-->
+<div class="card">
+    <div class="card-header text-center">
+        FLASCHENPOST
+    </div>
+    <!--Top Navigation for sorting and filtering products-->
+    <div class="card-body">
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="bottleView" value="bottleView" checked (change)="selectedView($event)">
+                                    <label class="form-check-label" for="bottleView">Bottle View</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="detailsView" value="detailsView" (change)="selectedView($event)">
+                                    <label class="form-check-label" for="detailsView">Details View</label>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <select class="form-select" id="sort-by" (change)="sort($event)">
+                                    <option value="" selected disabled hidden>Sort By</option>
+                                    <option value="name_asc">Ascending</option>
+                                    <option value="name_desc">Descending</option>
+                                    <option value="low">Show Low to High Price</option>
+                                    <option value="high">Show High to Low Price</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="filterCheck"
+                                        name="filterEnabled" [(ngModel)]="filterEnabled">
+                                    <label class="form-check-label" for="filterCheck">
+                                        Beer < 2 Euro/Liter </label>
+                                            <button class="btn filterBtn" type="button" (click)="clearFilter()">Clear
+                                                filter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Main section displaying products and product info on different views -->
+        <!--Bottle View displaying only products-->
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="container" id="main-container" *ngIf="showBottleView">
+                        <div class="row">
+                            <div class="col-md-6 col-xl-3" *ngFor="let product of productsArray">
+                                <div class="card text-white bg-secondary mb-3">
+                                    <div class="card-body">
+                                        <div>
+                                            <img src="{{product.image}}" class="card-img-top" alt="{{product.image}}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Detail View displaying images along with the information-->
+                    <div class="container" id="main-container" *ngIf="!showBottleView">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-4"
+                                *ngFor="let product of productsArray | filterPrice: filterEnabled">
+                                <div class="card text-white bg-secondary mb-3">
+                                    <div class="card-body">
+                                        <div class="imgDetailView">
+                                            <img src="{{product.image}}" class="card-img-top" alt="{{product.image}}">
+                                        </div>
+                                        <div style="line-height: normal;">
+                                            <h6>{{product.name}}</h6>
+                                            <h6>{{product.price}} Euro</h6>
+                                            <h6>{{product.shortDescription}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Application Footer-->
+    <div class="card-footer text-muted text-center">
+        © Flaschenpost SE
+    </div>
+</div>
